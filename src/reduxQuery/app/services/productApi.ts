@@ -1,5 +1,4 @@
 import { createApi, CreateApi, fetchBaseQuery } from '@reduxjs/toolkit/query';
-import { build } from 'vite';
 
 export const productApi = createApi({
   reducerPath: '',
@@ -13,7 +12,7 @@ export const productApi = createApi({
     }),
     addNewProduct: builder.mutation({
       query: (newProduct) => ({
-        url: ``,
+        url: `/products/add`,
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: newProduct,
@@ -21,7 +20,7 @@ export const productApi = createApi({
     }),
     updateProduct: builder.mutation({
       query: ({ id, updatedProduct }) => ({
-        url: ``,
+        url: `/products/${id}`,
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: updatedProduct,
@@ -29,7 +28,7 @@ export const productApi = createApi({
     }),
     deleteById: builder.mutation({
       query: (id) => ({
-        url: ``,
+        url: `/products/${id}`,
         method: 'DELETE',
       }),
     }),
